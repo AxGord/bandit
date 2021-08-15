@@ -1,0 +1,7 @@
+<style>
+
+	<TextDebug extends="text" size="18" color="#ffffff" outline="1 #000000" letterSpacing="6"/>
+	<TextDebugBig extends="text" size="42" color="#ffffff" outline="1 #000000" letterSpacing="6"/>
+	<Hud extends="layout" wh="stage" border="10 20"/>
+
+</style>

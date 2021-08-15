@@ -1,0 +1,21 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# Project files
+/builds/
+/js.hxml
+/win.hxml
+/mac.hxml
+/bin/app.js
+/bin/app.js.map
+/bin/app.hl
+/libs/
+/libcache.js
+/bin/assets/tiles/
+/bin/assets/bandit.atlas
+/bin/assets/bandit.png

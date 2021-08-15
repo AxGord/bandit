@@ -1,0 +1,122 @@
+{
+"version": "2.0.0",
+"tasks": [
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "default",
+"command": "pony build js debug",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "win debug",
+"command": "pony build win debug",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "mac debug",
+"command": "pony build mac debug",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "js release",
+"command": "pony build js release",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "win release",
+"command": "pony build win release",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "default"
+},
+"type": "shell",
+"label": "mac release",
+"command": "pony build mac release",
+"group": {
+"kind": "build"
+},
+"problemMatcher": [
+"$haxe-absolute",
+"$haxe",
+"$haxe-error",
+"$haxe-trace"
+]
+},
+{
+"runOptions": {
+"runOn": "folderOpen"
+},
+"type": "shell",
+"label": "server",
+"isBackground": true,
+"command": "pony server",
+"presentation": {
+"echo": false,
+"focus": false,
+"reveal": "silent",
+"panel": "dedicated"
+}
+}
+]
+}

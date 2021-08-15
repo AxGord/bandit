@@ -1,0 +1,31 @@
+{
+"configurations": [
+{
+"request": "launch",
+"name": "Launch Chrome",
+"type": "chrome",
+"preLaunchTask": "default",
+"webRoot": "${workspaceRoot}",
+"breakOnLoad": true,
+"internalConsoleOptions": "openOnSessionStart",
+"url": "http://localhost:2000"
+},
+{
+"request": "launch",
+"name": "MacOS (HashLink SDL)",
+"type": "hl",
+"preLaunchTask": "mac debug",
+"program": "${workspaceFolder}/bin/app.hl",
+"cwd": "${workspaceFolder}/bin/"
+},
+{
+"request": "launch",
+"name": "Windows (HashLink DirectX)",
+"type": "hl",
+"preLaunchTask": "win debug",
+"program": "${workspaceFolder}/bin/app.hl",
+"cwd": "${workspaceFolder}/bin/"
+}
+],
+"version": "0.2.0"
+}

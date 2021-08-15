@@ -1,0 +1,9 @@
+<node style="style.xml">
+
+	<node id="container"/>
+
+	<Hud align="left top">
+		<TextDebug align="left" id="debug"/>
+	</Hud>
+
+</node>

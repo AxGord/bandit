@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project haxe="4.2.3">
+	<server>
+		<path>bin/</path>
+		<port>2000</port>
+		<haxe>6010</haxe>
+	</server>
+	<config dep="js.hxml">
+		<height>1024</height>
+		<background>#1A1A1A</background>
+		<baseUrl>assets/</baseUrl>
+		<width>1280</width>
+	</config>
+	<download path="libs/">
+		<unit url="https://raw.githubusercontent.com/jfriend00/docReady/master/docready.js"/>
+		<unit url="https://github.com/HaxeFoundation/hashlink/releases/download/{v}/hl-{v}.0-win.zip" v="1.11"/>
+	</download>
+	<haxelib>
+		<lib>pony dev</lib>
+		<lib>heaps 1.9.1</lib>
+		<lib mute="true">hlsdl 1.10.0</lib>
+		<lib mute="true">hldx 1.10.0</lib>
+		<lib>ldtk-haxe-api 0.9.3-rc.1</lib>
+		<lib>deepnightLibs 1.0.59</lib>
+	</haxelib>
+	<hl>
+		<release>
+			<main>bin/app.hl</main>
+			<data from="bin/">assets/</data>
+			<apps>
+				<win>
+					<output clean="true">builds/app</output>
+					<hl>libs/hl-1.11.0-win.zip</hl>
+				</win>
+				<mac>
+					<output clean="true">builds/app.app</output>
+					<hl>mac</hl>
+				</mac>
+			</apps>
+		</release>
+	</hl>
+	<build>
+		<apps>
+			<js>
+				<prepare hxml="js">
+					<main>Main</main>
+					<js>bin/app.js</js>
+					<cp>src</cp>
+					<dce>full</dce>
+					<d>analyzer-optimize</d>
+					<d>heaps_unsafe_events</d>
+					<d name="resourcesPath">bin/assets/</d>
+				</prepare>
+				<build>
+					<hxml>js</hxml>
+				</build>
+			</js>
+			<win>
+				<prepare hxml="win">
+					<main>Main</main>
+					<hl>bin/app.hl</hl>
+					<cp>src</cp>
+					<lib>hldx:1.10.0</lib>
+					<dce>full</dce>
+					<d>analyzer-optimize</d>
+					<d name="hl_ver">1.11.0</d>
+					<d>heaps_unsafe_events</d>
+					<d name="resourcesPath">bin/assets/</d>
+				</prepare>
+				<build>
+					<hxml>win</hxml>
+				</build>
+			</win>
+			<mac>
+				<prepare hxml="mac">
+					<main>Main</main>
+					<hl>bin/app.hl</hl>
+					<cp>src</cp>
+					<lib>hlsdl:1.10.0</lib>
+					<dce>full</dce>
+					<d>analyzer-optimize</d>
+					<d name="hl_ver">1.12.0</d>
+					<d>heaps_unsafe_events</d>
+					<d name="resourcesPath">bin/assets/</d>
+				</prepare>
+				<build>
+					<hxml>mac</hxml>
+				</build>
+			</mac>
+		</apps>
+	</build>
+	<uglify>
+		<apps>
+			<js libcache="true">
+				<release>
+					<c/>
+					<m/>
+				</release>
+				<debug>
+					<sourcemap>
+						<input>bin/app.js.map</input>
+						<output>bin/app.js.map</output>
+						<url>app.js.map</url>
+						<source>app.js</source>
+						<offset>0</offset>
+					</sourcemap>
+				</debug>
+				<input>libs/docready.js</input>
+				<input>bin/app.js</input>
+				<output>bin/app.js</output>
+			</js>
+		</apps>
+	</uglify>
+
+	<texturepacker
+		group="assets" format="libgdx png" from="assets_source/" to="bin/assets/" ext="atlas" rotation="false" trim="None" pot="true"
+	>
+		<unit>
+			<output>bandit</output>
+			<input>LightBandit/</input>
+			<input>HeavyBandit/</input>
+		</unit>
+	</texturepacker>
+
+	<imagemin group="assets opt" to="bin/assets/" pngq="80" format="png" trim="None">
+		<path from="bin/assets/">
+			<dir/>
+		</path>
+		<path from="assets_source/Tiles/" to="tiles/">
+			<dir/>
+		</path>
+	</imagemin>
+
+</project>
