@@ -49,7 +49,7 @@ class BanditView extends Anim implements HasAsset {
 		onLeftLimit = xAxis.onLimit - false;
 		yAxis = new MoveAxis(
 			yConfig,
-			{downUp: downUp, downDown: downDown}
+			{downUp: downUp}
 		);
 		xAxis.changeValue << setX;
 		yAxis.changeValue << setY;

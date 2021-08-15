@@ -14,6 +14,7 @@ typedef ControlSignals = {
 	?downDown: Signal0,
 	?upDown: Signal0
 }
+
 /**
  * MoveAxis
  * @author AxGord <axgord@gmail.com>
