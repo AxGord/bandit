@@ -16,7 +16,7 @@
 		<unit url="https://github.com/HaxeFoundation/hashlink/releases/download/{v}/hl-{v}.0-win.zip" v="1.11"/>
 	</download>
 	<haxelib>
-		<lib>pony dev</lib>
+		<lib>pony 1.5.0</lib>
 		<lib>heaps 1.9.1</lib>
 		<lib mute="true">hlsdl 1.10.0</lib>
 		<lib mute="true">hldx 1.10.0</lib>
