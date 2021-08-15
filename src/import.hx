@@ -5,9 +5,14 @@ import h2d.Scene;
 
 import ldtk.Json.LayerDefJson;
 import ldtk.Json.TilesetDefJson;
+import ldtk.Layer_Tiles;
 
 import pony.Config;
+import pony.Logable;
+import pony.Tumbler;
 import pony.geom.Point;
+import pony.geom.Rect;
+import pony.math.MathTools;
 import pony.heaps.HeapsApp;
 import pony.heaps.HeapsUtils;
 import pony.magic.HasAsset;
@@ -25,3 +30,4 @@ import pony.events.Signal1;
 import pony.events.Signal2;
 
 import Levels;
+import MoveAxis.MoveConfig;
