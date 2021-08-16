@@ -1,0 +1,14 @@
+<node style="style.xml">
+
+	<Hud align="left top">
+		<TextDebug align="left" id="debug"/>
+	</Hud>
+
+	<Hud align="right bottom">
+<TextDebug align="multilineRight"
+>Bandit and Dungeon
+by AxGord
+</TextDebug>
+	</Hud>
+
+</node>

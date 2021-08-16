@@ -1,0 +1,1 @@
+@:assets_path('') final class Assets implements HasAsset {}

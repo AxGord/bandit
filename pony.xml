@@ -6,10 +6,22 @@
 		<haxe>6010</haxe>
 	</server>
 	<config dep="js.hxml">
+		<width>1280</width>
 		<height>1024</height>
 		<background>#1A1A1A</background>
 		<baseUrl>assets/</baseUrl>
-		<width>1280</width>
+		<bandit>
+			<offset>24</offset>
+			<width>22</width>
+			<height>12</height>
+			<minSpeed>1</minSpeed>
+			<maxSpeedX>80</maxSpeedX>
+			<maxSpeedY>300</maxSpeedY>
+			<acceleration>300</acceleration>
+			<friction>200</friction>
+			<gravity>600</gravity>
+			<jumpImpulse>1000</jumpImpulse>
+		</bandit>
 	</config>
 	<download path="libs/">
 		<unit url="https://raw.githubusercontent.com/jfriend00/docReady/master/docready.js"/>
@@ -29,11 +41,11 @@
 			<data from="bin/">assets/</data>
 			<apps>
 				<win>
-					<output clean="true">builds/app</output>
+					<output clean="true">builds/bandit</output>
 					<hl>libs/hl-1.11.0-win.zip</hl>
 				</win>
 				<mac>
-					<output clean="true">builds/app.app</output>
+					<output clean="true">builds/bandit.app</output>
 					<hl>mac</hl>
 				</mac>
 			</apps>
@@ -130,5 +142,42 @@
 			<dir/>
 		</path>
 	</imagemin>
+
+	<zip>
+		<compress>9</compress>
+		<apps>
+			<mac>
+				<prefix>builds/</prefix>
+				<input>bandit.app/</input>
+				<output>builds/bandit.macos.zip</output>
+			</mac>
+			<win>
+				<prefix>builds/</prefix>
+				<input>bandit/</input>
+				<output>builds/bandit.windows.zip</output>
+			</win>
+			<js>
+				<prefix>bin/</prefix>
+				<input>assets/</input>
+				<input>app.js</input>
+				<input>index.html</input>
+				<output>builds/bandit.html.zip</output>
+			</js>
+		</apps>
+	</zip>
+
+	<copy>
+		<after>
+			<build>
+				<apps>
+					<js>
+						<release to="docs/" filter=".png .atlas .ldtk .js .html">
+							<dir>bin/</dir>
+						</release>
+					</js>
+				</apps>
+			</build>
+		</after>
+	</copy>
 
 </project>

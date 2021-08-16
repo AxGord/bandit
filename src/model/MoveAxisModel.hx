@@ -1,3 +1,5 @@
+package model;
+
 typedef MoveConfig = {
 	coreSize: Point<Int>,
 	minSpeed: Float,
@@ -16,17 +18,19 @@ typedef ControlSignals = {
 }
 
 /**
- * MoveAxis
+ * Move Axis Model
  * @author AxGord <axgord@gmail.com>
  */
-@:nullSafety(Strict) class MoveAxis extends Tumbler {
+@:nullSafety(Strict) class MoveAxisModel extends Tumbler {
 
 	@:auto public var onCollision: Signal1<Bool>;
 	@:auto public var onLostCollision: Signal0;
 	@:auto public var onLimit: Signal1<Bool>;
+
 	@:bindable public var value: Float = 0;
 	@:bindable public var otherAxisValue: Float = 0;
 	@:bindable public var speed: Float = 0;
+
 	private var internalSpeed: Float = 0;
 
 	private var blocks: Array<Point<Int>> = [];
@@ -175,12 +179,12 @@ typedef ControlSignals = {
 				return;
 			}
 			var v: Float = value - sp * dt;
-			if (limits != null && v <= limits.x) {
-				v = limits.x;
+			if (limits != null && v - coreSize.x <= limits.x) {
+				v = limits.x + coreSize.x;
 				sp = 0;
 				eLimit.dispatch(false);
-			} else if (limits != null && v >= limits.y) {
-				v = limits.y;
+			} else if (limits != null && v + coreSize.x >= limits.y) {
+				v = limits.y - coreSize.x;
 				sp = 0;
 				eLimit.dispatch(true);
 			} else {
@@ -226,13 +230,13 @@ typedef ControlSignals = {
 		destroySignals();
 	}
 
-	public inline function changeBlocks(blocksList: Array<Point<Int>>, size: Int, lim: Point<Int>): Void {
+	public inline function changeBlocks(blocksList: Array<Point<Int>>, size: Int, lim: Null<Point<Int>>): Void {
 		blocks = blocksList;
 		gridSize = size;
 		limits = lim;
 	}
 
-	public inline function start(blocksList: Array<Point<Int>>, size: Int, pos: Point<Int>, lim: Point<Int>): Void {
+	public inline function start(blocksList: Array<Point<Int>>, size: Int, pos: Point<Int>, lim: Null<Point<Int>>): Void {
 		changeBlocks(blocksList, size, lim);
 		setPos(pos.x, pos.y);
 		enable();
@@ -243,9 +247,11 @@ typedef ControlSignals = {
 		blocks = [];
 	}
 
-	public function setPos(a: Float, b: Float): Void {
+	public inline function setPos(a: Float, b: Float): Void {
 		value = a;
 		otherAxisValue = b;
 	}
+
+	public function setOther(v: Float): Void otherAxisValue = v;
 
 }

@@ -2,6 +2,7 @@ import h2d.Object;
 import h2d.Anim;
 import h2d.TileGroup;
 import h2d.Scene;
+import h2d.col.Bounds;
 
 import ldtk.Json.LayerDefJson;
 import ldtk.Json.TilesetDefJson;
@@ -28,6 +29,3 @@ import pony.time.DT;
 import pony.events.Signal0;
 import pony.events.Signal1;
 import pony.events.Signal2;
-
-import Levels;
-import MoveAxis.MoveConfig;
