@@ -4,7 +4,7 @@ Bandit and Dungeon
 Simple platform game example
 -----------------
 
-Haxe + Heaps + Pony
+Haxe + Heaps + Pony + LDTK
 
 Play: <https://axgord.github.io/bandit/>
 
@@ -22,6 +22,7 @@ Build
 3. Install TexturePacker <https://www.codeandweb.com/texturepacker>
 4. Install Pony (`haxelib install pony && haxelib run pony`) <https://github.com/AxGord/Pony>
 5. `cd PROJECT_DIR && pony prepare && pony build all` or open in VSCode (enable all recommended extensions and allow automatic tasks) <https://code.visualstudio.com>
+6. Install LDTK for edit levels <https://ldtk.io>
 
 Build and pack commands
 -----------------
